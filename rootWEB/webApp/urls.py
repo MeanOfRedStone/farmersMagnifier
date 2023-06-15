@@ -11,5 +11,6 @@ urlpatterns = [
     path('information/', views.information),
     #병충해 판별
     path('identification/', views.identification),
-    #
+    #회원가입
+    path('join/', views.join),
 ]

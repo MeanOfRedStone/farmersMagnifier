@@ -23,4 +23,8 @@ def identification(request):
 
     return render(request, 'identification.html')
 
-#
+#회원가입
+def join(request):
+    print(">>>>>>debug client path: join/ join(), render join.html ")
+
+    return render(request, 'join.html')
