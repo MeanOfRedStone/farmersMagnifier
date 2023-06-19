@@ -10,8 +10,32 @@
         <title>Register - SB Admin</title>
         <link href="{% static 'css/styles2.css' %}" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <style>
+            .home{
+                text-decoration-line: none;
+                color: inherit;
+            }
+
+            a:hover {
+                    color : black;
+            }
+
+            h3 {
+                text-align: center;
+            }
+        </style>
     </head>
-    <body class="bg-primary">
+        <body class="bg-primary">
+             {% if messages %}
+                <div class="container">
+                    {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }}">
+                        [{{ message.tags }}]
+                        [{{ message.message }}]
+                        </div>
+                {% endfor %}
+            </div>
+            {% endif %}
         <div id="layoutAuthentication">
             <div id="layoutAuthentication_content">
                 <main>
@@ -19,33 +43,37 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-7">
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
+                                    <!--                              추가 삽입 부분: 홈으로 돌아가는 링크      -->
+                                    <h3><a class="home" href="../home/">농작물 병충해 판별</a></h3>
+<!--                                  끝  -->
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Create Account</h3></div>
                                     <div class="card-body">
-                                        <form>
+                                        <form action="../register/" method="post">
+                                            {% csrf_token %}
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="inputName" type="text" placeholder="Name" />
+                                                <input class="form-control" name="name" id="inputName" type="text" placeholder="Name" />
                                                 <label for="inputName">Name</label>
                                             </div>
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="inputID" type="text" placeholder="ID" />
+                                                <input class="form-control" name="id" id="inputID" type="text" placeholder="ID" />
                                                 <label for="inputID">ID</label>
                                             </div>
                                             <div class="row mb-3">
                                                 <div class="col-md-6">
                                                     <div class="form-floating mb-3 mb-md-0">
-                                                        <input class="form-control" id="inputPassword" type="password" placeholder="Create a password" />
+                                                        <input class="form-control" name="pwd" id="inputPassword" type="password" placeholder="Create a password" />
                                                         <label for="inputPassword">Password</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-floating mb-3 mb-md-0">
-                                                        <input class="form-control" id="inputPasswordConfirm" type="password" placeholder="Confirm password" />
+                                                        <input class="form-control" name="pwd_con" id="inputPasswordConfirm" type="password" placeholder="Confirm password" />
                                                         <label for="inputPasswordConfirm">Confirm Password</label>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="mt-4 mb-0">
-                                                <div class="d-grid"><a class="btn btn-primary btn-block" href="../register/">Create Account</a></div>
+                                                <div class="d-grid"><button type="submit" class="btn btn-primary btn-block">Create Account</button></div>
                                             </div>
                                         </form>
                                     </div>

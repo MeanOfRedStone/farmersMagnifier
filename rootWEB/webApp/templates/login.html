@@ -10,8 +10,32 @@
         <title>Login - SB Admin</title>
         <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <style>
+            .home{
+                text-decoration-line: none;
+                color: inherit;
+            }
+
+            a:hover {
+                    color : black;
+            }
+
+            h3 {
+                text-align: center;
+            }
+        </style>
     </head>
     <body class="bg-primary">
+        {% if messages %}
+        <div class="container">
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                    [{{ message.tags }}]
+                    [{{ message.message }}]
+                </div>
+            {% endfor %}
+        </div>
+            {% endif %}
         <div id="layoutAuthentication">
             <div id="layoutAuthentication_content">
                 <main>
@@ -19,24 +43,27 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-5">
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
+<!--                              추가 삽입 부분: 홈으로 돌아가는 링크      -->
+                                    <h3><a class="home" href="../home/">농작물 병충해 판별</a></h3>
+<!--                                  끝  -->
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
                                     <div class="card-body">
-                                        <form>
+                                        <form action="../check/" method="post">
+                                            {% csrf_token %}
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="inputEmail" type="email" placeholder="name@example.com" />
-                                                <label for="inputEmail">Email address</label>
+                                                <input class="form-control" name="id" id="inputID" type="text" placeholder="ID" />
+                                                <label for="inputID">ID</label>
                                             </div>
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="inputPassword" type="password" placeholder="Password" />
+                                                <input class="form-control" name="pwd" id="inputPassword" type="password" placeholder="Password" />
                                                 <label for="inputPassword">Password</label>
                                             </div>
-                                            <div class="form-check mb-3">
-                                                <input class="form-check-input" id="inputRememberPassword" type="checkbox" value="" />
-                                                <label class="form-check-label" for="inputRememberPassword">Remember Password</label>
-                                            </div>
-                                            <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                                <a class="small" href="password.html">Forgot Password?</a>
-                                                <a class="btn btn-primary" href="index.html">Login</a>
+<!--                                            <div class="form-check mb-3">-->
+<!--                                                <input class="form-check-input" id="inputRememberPassword" type="checkbox" value="" />-->
+<!--                                                <label class="form-check-label" for="inputRememberPassword">Remember Password</label>-->
+<!--                                            </div>-->
+                                            <div class="mt-4 mb-0">
+                                                <div class="d-grid"><button type="submit" class="btn btn-primary btn-block">Login</button></div>
                                             </div>
                                         </form>
                                     </div>
