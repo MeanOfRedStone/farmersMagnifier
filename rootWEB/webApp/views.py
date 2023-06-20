@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import *
 from django.contrib import messages
@@ -32,7 +33,8 @@ def information(request):
         context['user_id'] = request.session['session_user_id']
         return render(request, 'information.html', context)
 
-    return render(request, 'information.html')
+    messages.add_message(request, messages.INFO, "로그인이 필요합니다.")
+    return render(request, 'login.html')
 
 #병충해 판별 링크
 def identification(request):
@@ -46,7 +48,8 @@ def identification(request):
         context['user_id'] = request.session['session_user_id']
         return render(request, 'identification.html', context)
 
-    return render(request, 'identification.html')
+    messages.add_message(request, messages.INFO, "로그인이 필요합니다.")
+    return render(request, 'login.html')
 
 #정보 공유 게시판
 def communicate(request):
@@ -55,12 +58,26 @@ def communicate(request):
     # 로그인 세션 유지
     if (request.session.get('session_user_id')):
         print(">>>>>> debug, session exists")
-        context = {}
+        # 게시판 정보 전달
+        #all() - 전체 데이터 검색
+
+        boards = board_information.objects.all().order_by('-board_no')
+
+        #patinator 작업(pagninator에 데이터를 담아 갯수만큼 출력 나머지는 페이지를 넘김)
+        page = int(request.GET.get('page', 1))
+        paginator = Paginator(boards, 15)
+        board_list = paginator.get_page(page)
+
+        context = {'boards': board_list}
+
+        #로그인 세션
         context['name'] = request.session['session_name']
         context['user_id'] = request.session['session_user_id']
+
         return render(request, 'communicate.html', context)
 
-    return render(request, 'communicate.html')
+    messages.add_message(request, messages.INFO, "로그인이 필요합니다.")
+    return render(request, 'login.html')
 
 
 #회원 기능
