@@ -28,7 +28,19 @@ def information(request):
     # 로그인 세션 유지
     if (request.session.get('session_user_id')):
         print(">>>>>> debug, session exists")
-        context = {}
+
+        # 게시판 정보 전달
+        # all() - 전체 데이터 검색
+        pests = pest_information.objects.all()
+
+        # patinator 작업(pagninator에 데이터를 담아 갯수만큼 출력 나머지는 페이지를 넘김)
+        page = int(request.GET.get('page', 1))
+        paginator = Paginator(pests, 20)
+        pest_list = paginator.get_page(page)
+
+        # 추후 paginator 작업 필요
+        # 지금은 orm으로 불러온것만
+        context = {'pests': pest_list}
         context['name'] = request.session['session_name']
         context['user_id'] = request.session['session_user_id']
         return render(request, 'information.html', context)
@@ -42,6 +54,7 @@ def identification(request):
 
     # 로그인 세션 유지
     if (request.session.get('session_user_id')):
+
         print(">>>>>> debug, session exists")
         context = {}
         context['name'] = request.session['session_name']
