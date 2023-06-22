@@ -26,6 +26,11 @@
                 color : black;
             }
 
+            .paginator{
+                justify-content: center;
+                display:flex;
+            }
+
         </style>
     </head>
     <body>
@@ -98,6 +103,7 @@
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
                         </div>
+
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -129,29 +135,31 @@
 
 <!--                                페이지네이터 css weatherClothes 참고-->
 <!--                                페이지 네이터-->
-                                <div>
-                                    {% if boards.has_previous %}
-                                    <a class="abutton" href="?page=1" style="color:black;">맨 앞으로</a>
-                                    <a class="abutton" style="color:black;" href="?page{{ boards.previous_page_number }}">이전</a>
-                                    {% endif %}
-                                </div>
+                                <div class="paginator">
+                                    <div>
+                                        {% if boards.has_previous %}
+                                        <a class="abutton" href="?page=1" style="color:black;">맨 앞으로</a>
+                                        <a class="abutton" style="color:black;" href="?page{{ boards.previous_page_number }}">이전</a>
+                                        {% endif %}
+                                    </div>
 
-                                <div>
-                                    {% for page in boards.paginator.page_range %}
-                                    {% if page >= boards.number|add:-2 and page <= boards.number|add:2 %}
-                                    <span class="{% if page == boards.number %}current{% endif %}">
-                                        <a href="?page={{ page }}" style="color:black;">{{ page }}</a>
-                                    </span>
-                                    {% elif page >= boards.number|add:-3 and page <= boards.number|add:3 %}
-                                    ..
-                                    {% endif %}
-                                    {% endfor %}
+                                    <div>
+                                        {% for page in boards.paginator.page_range %}
+                                        {% if page >= boards.number|add:-2 and page <= boards.number|add:2 %}
+                                        <span class="{% if page == boards.number %}current{% endif %}">
+                                            <a href="?page={{ page }}" style="color:black;">{{ page }}</a>
+                                        </span>
+                                        {% elif page >= boards.number|add:-3 and page <= boards.number|add:3 %}
+                                        ..
+                                        {% endif %}
+                                        {% endfor %}
+                                    </div>
                                 </div>
 <!--                                페이지네이터 끝-->
 
                             </div>
                         </div>
-                    </div>
+            </div>
 <!--        끝-->
         <!-- Icons Grid-->
 <!--        <section class="features-icons bg-light text-center">-->
