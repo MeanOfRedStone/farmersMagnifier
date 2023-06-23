@@ -104,7 +104,7 @@ def species(request):
 
     # 불러온 카테고리에 해당한 값을 pest_information db에서 불러옴
     # 우선 지금 db가 안바뀌어서 values 그대로 사용 추후 values('pest_nm')으로 바꿔줘야 한다.
-    pests = pest_information.objects.filter(plant_nm=species).values('plant_nm', 'pest_img', 'information_no')
+    pests = pest_information.objects.filter(plant_nm=species).values('pest_name', 'pest_img', 'information_no')
     print(">>>>>> debug : names = ", pests)
 
     length = len(pests)
@@ -116,7 +116,7 @@ def species(request):
 
     #개체 하나당 딕셔너리를 만들어줘서 리스트에 넣어준다. 리스트는 인덱스로 딕셔녀리를 가져오고. 딕셔너리(obj)는 키값으로 값을 부른다.
     for i in range(0, length):
-        response_json.append({'pest_nm': pests.values()[i]['plant_nm'], 'pest_img': pests.values()[i]['pest_img'], 'information_no': pests.values()[i]['information_no']})
+        response_json.append({'pest_nm': pests.values()[i]['pest_name'], 'pest_img': pests.values()[i]['pest_img'], 'information_no': pests.values()[i]['information_no']})
     # response_json.append({'pest_nm': pest_nm, 'pest_img': pest_img})
     print(">>>>>>debug : pest_data = ", response_json)
 

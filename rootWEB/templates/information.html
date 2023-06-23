@@ -98,7 +98,7 @@
     <body>
         <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
-            <h3><a class="home" href="../home/">농작물 병충해 판별</a></h3>
+            <h3><a class="home" href="../home/">DR.PLANT</a></h3>
             <div class="container">
                 <a class="navbar-brand" href="../information/">병충해 정보</a>
                 <a class="navbar-brand" href="../identification/">병충해 판별</a>
@@ -115,11 +115,7 @@
         <!--       표 복사 시작-->
             <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
-                        </div>
-
-                        <div class="wrap">
-<!--                            셀렉트 박스-->
+                            <!--                            셀렉트 박스-->
                             <div class="select_box">
                             <select id="plant_category">
                                 <option>작물분류</option>
@@ -131,6 +127,10 @@
                             </select>
                             </div>
 <!--                            끝-->
+                        </div>
+
+                        <div class="wrap">
+
                             <div id="pest" class="fixed_img_col">
                                 {% for pest in pests %}
                                 <ul>
