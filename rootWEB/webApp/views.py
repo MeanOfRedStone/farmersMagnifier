@@ -1,7 +1,10 @@
+from django.core import serializers
 from django.core.paginator import Paginator
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import *
 from django.contrib import messages
+from django.http        import JsonResponse
+import json
 
 
 # Create your views here.
@@ -22,7 +25,8 @@ def main(request):
     return render(request, 'main.html')
 
 #게시판 링크
-#병충해 정보 링크
+#병충해 정보 게시판
+#게시판 링크
 def information(request):
     print(">>>>>>debug client path: information/ information(), render information.html")
     # 로그인 세션 유지
@@ -41,14 +45,86 @@ def information(request):
         # 추후 paginator 작업 필요
         # 지금은 orm으로 불러온것만
         context = {'pests': pest_list}
+
+        # context = {}
         context['name'] = request.session['session_name']
         context['user_id'] = request.session['session_user_id']
         return render(request, 'information.html', context)
 
+
     messages.add_message(request, messages.INFO, "로그인이 필요합니다.")
     return render(request, 'login.html')
+#select box dom 통신 1.카테고리 선택
+def category(request):
+    print(">>>>>> debug, client path: category/ category(), render JsonResponse")
 
+    # ajax data: 의 값 항목에서 받아오는 것임 / html id 선택자로 받아오는 것이 아니다.
+    category = request.POST['plant_category']
+    print(">>>>>> param = ", category)
+
+    #불러온 카테고리에 해당한 값을 pest_information db에서 불러옴
+    names = pest_information.objects.filter(plant_category=category).values('plant_nm')
+    print(">>>>>> debug : names = ", names)
+
+
+    species = []
+
+    # plant_category QuerySet의 길이
+    length = len(names)
+
+    print(">>>>>>debug : queryset 길이 = ", length)
+
+    #queryset을 json_resoponse로 담기 전 리스트에 담는다.
+    for i in range(0, length) :
+        species.append(names.values()[i]['plant_nm'])
+
+    # 중복된 값을 처리하고 다시 리스트로 변화
+    species = set(species)
+    species = list(species)
+    species = sorted(species)
+    species.insert(0, '작물명')
+
+    print(">>>>>> debug: species = ", species)
+
+    # species라는 변수로 plant_category와 일치하는 plant_nm 을 보내준다.
+
+    response_json = []
+    response_json.append({'category': category, 'species': species})
+
+    print(">>>>>> debug : response_json = ", response_json)
+
+    return JsonResponse(response_json, safe = False)
+#selectbox dom 통신 2. 작물명 선택
+def species(request):
+    print(">>>>>> debug, client path: species/ species(), render JsonResponse")
+
+    # ajax data: 의 값 항목에서 받아오는 것임 / html id 선택자로 받아오는 것이 아니다.
+    species = request.POST['plant_species']
+    print(">>>>>> param = ", species)
+
+    # 불러온 카테고리에 해당한 값을 pest_information db에서 불러옴
+    # 우선 지금 db가 안바뀌어서 values 그대로 사용 추후 values('pest_nm')으로 바꿔줘야 한다.
+    pests = pest_information.objects.filter(plant_nm=species).values('plant_nm', 'pest_img', 'information_no')
+    print(">>>>>> debug : names = ", pests)
+
+    length = len(pests)
+
+    print(">>>>>> debug : queryset 길이 = ", length)
+    # queryset을 json_resoponse로 담기 전 리스트에 담는다.
+    # 추후 'plant_nm' -> 'pest_nm'으로 바꿔줘야 한다.
+    response_json = []
+
+    #개체 하나당 딕셔너리를 만들어줘서 리스트에 넣어준다. 리스트는 인덱스로 딕셔녀리를 가져오고. 딕셔너리(obj)는 키값으로 값을 부른다.
+    for i in range(0, length):
+        response_json.append({'pest_nm': pests.values()[i]['plant_nm'], 'pest_img': pests.values()[i]['pest_img'], 'information_no': pests.values()[i]['information_no']})
+    # response_json.append({'pest_nm': pest_nm, 'pest_img': pest_img})
+    print(">>>>>>debug : pest_data = ", response_json)
+
+    return JsonResponse(response_json, safe = False)
 #병충해 판별 링크
+def viewInformation(request):
+    pass
+
 def identification(request):
     print(">>>>>>debug client path: identification/ identification(), render identification.html")
 
