@@ -18,7 +18,7 @@ urlpatterns = [
     path('viewInformation/', views.viewInformation),
 
     #병충해 판별
-    path('identification/', views.identification),
+    # path('identification/', views.identification),
     #정보 공유 게시판
     path('communicate/', views.communicate),
 
