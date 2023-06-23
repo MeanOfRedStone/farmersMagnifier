@@ -123,7 +123,24 @@ def species(request):
     return JsonResponse(response_json, safe = False)
 #병충해 판별 링크
 def viewInformation(request):
-    pass
+    no = request.GET['no']
+    length = len(no)
+    information_no = no[1:length-1]
+
+    #pest_information 의  키 값 information_no 를 받아온다.
+    print(">>>>>> debug , params = ", information_no)
+
+    information = pest_information.objects.get(information_no=information_no)
+
+    print(">>>>>> debug - information : ", information)
+
+    #ORM으로 담아온 게시글 정보를 보관
+    context = {'information' : information}
+    # 세션 유지
+    context['name'] = request.session['session_name']
+    context['user_id'] = request.session['session_user_id']
+
+    return render(request, 'viewInformation.html', context)
 
 def identification(request):
     print(">>>>>>debug client path: identification/ identification(), render identification.html")
