@@ -14,8 +14,8 @@
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="{% static 'css/styles2.css' %}" rel="stylesheet" />
-        <link href="{% static 'css/styles2.css' %}" rel="stylesheet" />
+        <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+
         <style>
             .home{
                 text-decoration-line: none;
@@ -26,17 +26,12 @@
                 color : black;
             }
 
-            .paginator{
-                justify-content: center;
-                display:flex;
-            }
-
         </style>
     </head>
     <body>
         <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
-            <h3><a class="home" href="../home/">농작물 병충해 판별</a></h3>
+            <h3><a class="home" href="../home/">DR.PLANT</a></h3>
             <div class="container">
                 <a class="navbar-brand" href="../information/">병충해 정보</a>
                 <a class="navbar-brand" href="../identification/">병충해 판별</a>
@@ -48,7 +43,7 @@
                 {% endif %}
             </div>
         </nav>
-
+        
         <!-- Masthead-->
 <!--        <header class="masthead">-->
 <!--            <div class="container position-relative">-->
@@ -93,74 +88,11 @@
 <!--                                &lt;!&ndash; an error submitting the form&ndash;&gt;-->
 <!--                                <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>-->
 <!--                            </form>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </header>-->
-<!--       표 복사 시작-->
-            <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
                         </div>
-
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-<!--                                    목차-->
-                                    <thead>
-                                        <tr>
-                                            <th>BNO</th>
-                                            <th>TITLE</th>
-                                            <th>WRITER</th>
-                                            <th>REGDATE</th>
-                                            <th>VIEWCNT</th>
-                                        </tr>
-                                    </thead>
-<!--                                    끝-->
-<!--                                    본문-->
-                                    <tbody>
-                                    {% for board in boards %}
-                                        <tr>
-                                            <td>{{forloop.counter}}</td>
-                                            <td>{{board.board_title}}</td>
-                                            <td>{{board.user.user_id}}</td>
-                                            <td>{{board.create_dt|date:"Y-m-d"}}</td>
-                                            <td>{{board.view_cnt}}</td>
-                                        </tr>
-                                    {% endfor %}
-
-                                    </tbody>
-                                </table>
-
-<!--                                페이지네이터 css weatherClothes 참고-->
-<!--                                페이지 네이터-->
-                                <div class="paginator">
-                                    <div>
-                                        {% if boards.has_previous %}
-                                        <a class="abutton" href="?page=1" style="color:black;">맨 앞으로</a>
-                                        <a class="abutton" style="color:black;" href="?page{{ boards.previous_page_number }}">이전</a>
-                                        {% endif %}
-                                    </div>
-
-                                    <div>
-                                        {% for page in boards.paginator.page_range %}
-                                        {% if page >= boards.number|add:-2 and page <= boards.number|add:2 %}
-                                        <span class="{% if page == boards.number %}current{% endif %}">
-                                            <a href="?page={{ page }}" style="color:black;">{{ page }}</a>
-                                        </span>
-                                        {% elif page >= boards.number|add:-3 and page <= boards.number|add:3 %}
-                                        ..
-                                        {% endif %}
-                                        {% endfor %}
-                                    </div>
-                                </div>
-<!--                                페이지네이터 끝-->
-
-                            </div>
-                        </div>
+                    </div>
+                </div>
             </div>
-<!--        끝-->
+        </header>
         <!-- Icons Grid-->
 <!--        <section class="features-icons bg-light text-center">-->
 <!--            <div class="container">-->
@@ -330,12 +262,5 @@
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-
-<!--    테이블 js-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="{% static 'js/scripts2.js' %}"></script>
-        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
-        <script src="{% static 'js/datatables-simple-demo.js' %}"></script>
-<!--    끝-->
     </body>
 </html>

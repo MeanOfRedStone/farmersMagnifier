@@ -21,4 +21,5 @@ class pest_information(models.Model):
     content = models.CharField(db_column='CONTENT', max_length=800)  # Field name made lowercase.
     pest_img = models.CharField(db_column='PEST_IMG', max_length=200, blank=True,
                                 null=True)  # Field name made lowercase.
+    pest_name = models.CharField(db_column='PEST_NAME', max_length=25, default='')
 
