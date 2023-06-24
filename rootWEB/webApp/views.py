@@ -121,7 +121,7 @@ def species(request):
     print(">>>>>>debug : pest_data = ", response_json)
 
     return JsonResponse(response_json, safe = False)
-#병충해 판별 링크
+#병충해 정보 읽기
 def viewInformation(request):
     no = request.GET['no']
     length = len(no)
@@ -142,6 +142,9 @@ def viewInformation(request):
 
     return render(request, 'viewInformation.html', context)
 
+
+#병충해 판별 게시판
+#게시판 링크
 def identification(request):
     print(">>>>>>debug client path: identification/ identification(), render identification.html")
 
@@ -156,6 +159,16 @@ def identification(request):
 
     messages.add_message(request, messages.INFO, "로그인이 필요합니다.")
     return render(request, 'login.html')
+#이미지 업로드 후 전송
+def identificate(request):
+    source = request.GET['src']
+    print("작동")
+    print(">>>>>>debug, params :", source)
+
+    pass
+
+
+
 
 #정보 공유 게시판
 def communicate(request):

@@ -43,184 +43,31 @@
                 {% endif %}
             </div>
         </nav>
-        
-        <!-- Masthead-->
-<!--        <header class="masthead">-->
-<!--            <div class="container position-relative">-->
-<!--                <div class="row justify-content-center">-->
-<!--                    <div class="col-xl-6">-->
-<!--                        <div class="text-center text-white">-->
-<!--                            &lt;!&ndash; Page heading&ndash;&gt;-->
-<!--                            <h1 class="mb-5">문구 입력!</h1>-->
-                            <!-- Signup form-->
-                            <!-- * * * * * * * * * * * * * * *-->
-                            <!-- * * SB Forms Contact Form * *-->
-                            <!-- * * * * * * * * * * * * * * *-->
-                            <!-- This form is pre-integrated with SB Forms.-->
-                            <!-- To make this form functional, sign up at-->
-                            <!-- https://startbootstrap.com/solution/contact-forms-->
-                            <!-- to get an API token!-->
-<!--이메일 입력 하는 부분 필요 없어서 주석 처리                            -->
-<!--                            <form class="form-subscribe" id="contactForm" data-sb-form-api-token="API_TOKEN">-->
-<!--                                &lt;!&ndash; Email address input&ndash;&gt;-->
-<!--                                <div class="row">-->
-<!--                                    <div class="col">-->
-<!--                                        <input class="form-control form-control-lg" id="emailAddress" type="email" placeholder="Email Address" data-sb-validations="required,email" />-->
-<!--                                        <div class="invalid-feedback text-white" data-sb-feedback="emailAddress:required">Email Address is required.</div>-->
-<!--                                        <div class="invalid-feedback text-white" data-sb-feedback="emailAddress:email">Email Address Email is not valid.</div>-->
-<!--                                    </div>-->
-<!--                                    <div class="col-auto"><button class="btn btn-primary btn-lg disabled" id="submitButton" type="submit">Submit</button></div>-->
-<!--                                </div>-->
-<!--                                &lt;!&ndash; Submit success message&ndash;&gt;-->
-<!--                                &lt;!&ndash;&ndash;&gt;-->
-<!--                                &lt;!&ndash; This is what your users will see when the form&ndash;&gt;-->
-<!--                                &lt;!&ndash; has successfully submitted&ndash;&gt;-->
-<!--                                <div class="d-none" id="submitSuccessMessage">-->
-<!--                                    <div class="text-center mb-3">-->
-<!--                                        <div class="fw-bolder">Form submission successful!</div>-->
-<!--                                        <p>To activate this form, sign up at</p>-->
-<!--                                        <a class="text-white" href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                &lt;!&ndash; Submit error message&ndash;&gt;-->
-<!--                                &lt;!&ndash;&ndash;&gt;-->
-<!--                                &lt;!&ndash; This is what your users will see when there is&ndash;&gt;-->
-<!--                                &lt;!&ndash; an error submitting the form&ndash;&gt;-->
-<!--                                <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>-->
-<!--                            </form>-->
-                        </div>
-                    </div>
+
+
+        <div>
+            <!--        이미지 업로드 파트-->
+            <div>
+                <div class="button">
+                    <label for="image">
+                            Click Here!
+                    </label>
+
                 </div>
+                <input type="file" id="image" accept="image/*" onchange="setThumbnail(event);"/>
             </div>
-        </header>
-        <!-- Icons Grid-->
-<!--        <section class="features-icons bg-light text-center">-->
-<!--            <div class="container">-->
-<!--                <div class="row">-->
-<!--                    <div class="col-lg-4">-->
-<!--                        <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">-->
-<!--                            <div class="features-icons-icon d-flex"><i class="bi-window m-auto text-primary"></i></div>-->
-<!--                            <h3>Fully Responsive</h3>-->
-<!--                            <p class="lead mb-0">This theme will look great on any device, no matter the size!</p>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="col-lg-4">-->
-<!--                        <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">-->
-<!--                            <div class="features-icons-icon d-flex"><i class="bi-layers m-auto text-primary"></i></div>-->
-<!--                            <h3>Bootstrap 5 Ready</h3>-->
-<!--                            <p class="lead mb-0">Featuring the latest build of the new Bootstrap 5 framework!</p>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="col-lg-4">-->
-<!--                        <div class="features-icons-item mx-auto mb-0 mb-lg-3">-->
-<!--                            <div class="features-icons-icon d-flex"><i class="bi-terminal m-auto text-primary"></i></div>-->
-<!--                            <h3>Easy to Use</h3>-->
-<!--                            <p class="lead mb-0">Ready to use with your own content, or customize the source files!</p>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </section>-->
-<!--        &lt;!&ndash; Image Showcases&ndash;&gt;-->
-<!--        <section class="showcase">-->
-<!--            <div class="container-fluid p-0">-->
-<!--                <div class="row g-0">-->
-<!--                    <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('assets/img/bg-showcase-1.jpg')"></div>-->
-<!--                    <div class="col-lg-6 order-lg-1 my-auto showcase-text">-->
-<!--                        <h2>Fully Responsive Design</h2>-->
-<!--                        <p class="lead mb-0">When you use a theme created by Start Bootstrap, you know that the theme will look great on any device, whether it's a phone, tablet, or desktop the page will behave responsively!</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="row g-0">-->
-<!--                    <div class="col-lg-6 text-white showcase-img" style="background-image: url('assets/img/bg-showcase-2.jpg')"></div>-->
-<!--                    <div class="col-lg-6 my-auto showcase-text">-->
-<!--                        <h2>Updated For Bootstrap 5</h2>-->
-<!--                        <p class="lead mb-0">Newly improved, and full of great utility classes, Bootstrap 5 is leading the way in mobile responsive web development! All of the themes on Start Bootstrap are now using Bootstrap 5!</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="row g-0">-->
-<!--                    <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('assets/img/bg-showcase-3.jpg')"></div>-->
-<!--                    <div class="col-lg-6 order-lg-1 my-auto showcase-text">-->
-<!--                        <h2>Easy to Use & Customize</h2>-->
-<!--                        <p class="lead mb-0">Landing Page is just HTML and CSS with a splash of SCSS for users who demand some deeper customization options. Out of the box, just add your content and images, and your new landing page will be ready to go!</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </section>-->
-        <!-- Testimonials-->
-<!--        <section class="testimonials text-center bg-light">-->
-<!--            <div class="container">-->
-<!--                <h2 class="mb-5">What people are saying...</h2>-->
-<!--                <div class="row">-->
-<!--                    <div class="col-lg-4">-->
-<!--                        <div class="testimonial-item mx-auto mb-5 mb-lg-0">-->
-<!--                            <img class="img-fluid rounded-circle mb-3" src="assets/img/testimonials-1.jpg" alt="..." />-->
-<!--                            <h5>Margaret E.</h5>-->
-<!--                            <p class="font-weight-light mb-0">"This is fantastic! Thanks so much guys!"</p>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="col-lg-4">-->
-<!--                        <div class="testimonial-item mx-auto mb-5 mb-lg-0">-->
-<!--                            <img class="img-fluid rounded-circle mb-3" src="assets/img/testimonials-2.jpg" alt="..." />-->
-<!--                            <h5>Fred S.</h5>-->
-<!--                            <p class="font-weight-light mb-0">"Bootstrap is amazing. I've been using it to create lots of super nice landing pages."</p>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="col-lg-4">-->
-<!--                        <div class="testimonial-item mx-auto mb-5 mb-lg-0">-->
-<!--                            <img class="img-fluid rounded-circle mb-3" src="assets/img/testimonials-3.jpg" alt="..." />-->
-<!--                            <h5>Sarah W.</h5>-->
-<!--                            <p class="font-weight-light mb-0">"Thanks so much for making these free resources available to us!"</p>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </section>-->
-        <!-- Call to Action-->
-<!--        <section class="call-to-action text-white text-center" id="signup">-->
-<!--            <div class="container position-relative">-->
-<!--                <div class="row justify-content-center">-->
-<!--                    <div class="col-xl-6">-->
-<!--                        <h2 class="mb-4">Ready to get started? Sign up now!</h2>-->
-<!--                        &lt;!&ndash; Signup form&ndash;&gt;-->
-<!--                        &lt;!&ndash; * * * * * * * * * * * * * * *&ndash;&gt;-->
-<!--                        &lt;!&ndash; * * SB Forms Contact Form * *&ndash;&gt;-->
-<!--                        &lt;!&ndash; * * * * * * * * * * * * * * *&ndash;&gt;-->
-<!--                        &lt;!&ndash; This form is pre-integrated with SB Forms.&ndash;&gt;-->
-<!--                        &lt;!&ndash; To make this form functional, sign up at&ndash;&gt;-->
-<!--                        &lt;!&ndash; https://startbootstrap.com/solution/contact-forms&ndash;&gt;-->
-<!--                        &lt;!&ndash; to get an API token!&ndash;&gt;-->
-<!--                        <form class="form-subscribe" id="contactFormFooter" data-sb-form-api-token="API_TOKEN">-->
-<!--                            &lt;!&ndash; Email address input&ndash;&gt;-->
-<!--                            <div class="row">-->
-<!--                                <div class="col">-->
-<!--                                    <input class="form-control form-control-lg" id="emailAddressBelow" type="email" placeholder="Email Address" data-sb-validations="required,email" />-->
-<!--                                    <div class="invalid-feedback text-white" data-sb-feedback="emailAddressBelow:required">Email Address is required.</div>-->
-<!--                                    <div class="invalid-feedback text-white" data-sb-feedback="emailAddressBelow:email">Email Address Email is not valid.</div>-->
-<!--                                </div>-->
-<!--                                <div class="col-auto"><button class="btn btn-primary btn-lg disabled" id="submitButton" type="submit">Submit</button></div>-->
-<!--                            </div>-->
-<!--                            &lt;!&ndash; Submit success message&ndash;&gt;-->
-<!--                            &lt;!&ndash;&ndash;&gt;-->
-<!--                            &lt;!&ndash; This is what your users will see when the form&ndash;&gt;-->
-<!--                            &lt;!&ndash; has successfully submitted&ndash;&gt;-->
-<!--                            <div class="d-none" id="submitSuccessMessage">-->
-<!--                                <div class="text-center mb-3">-->
-<!--                                    <div class="fw-bolder">Form submission successful!</div>-->
-<!--                                    <p>To activate this form, sign up at</p>-->
-<!--                                    <a class="text-white" href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            &lt;!&ndash; Submit error message&ndash;&gt;-->
-<!--                            &lt;!&ndash;&ndash;&gt;-->
-<!--                            &lt;!&ndash; This is what your users will see when there is&ndash;&gt;-->
-<!--                            &lt;!&ndash; an error submitting the form&ndash;&gt;-->
-<!--                            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>-->
-<!--                        </form>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </section>-->
+
+
+            <!-- 이미지 업로드 파트 끝-->
+            <!-- 업로드한 이미지 출력부-->
+            <div id="image_container"></div>
+            <!-- 업로드 이미지 끝-->
+            <!-- 판별 기능 연결 버튼  -->
+            <div>
+                <button id="submitBtn" onclick="uploadImage();">질병 판별</button>
+            </div>
+            <!--판별 기능 연결 끝 -->
+        </div>
         <!-- Footer-->
         <footer class="footer bg-light">
             <div class="container">
@@ -262,5 +109,35 @@
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
+        <script>
+            function setThumbnail(event){
+                for(var image of event.target.files){
+                    var reader = new FileReader();
+
+                    reader.onload = function(event){
+                        var img = document.createElement("img");
+                        img.setAttribute("src", event.target.result);
+                        document.querySelector("div#image_container").appendChild(img);
+                    };
+
+                    console.log(image);
+                    reader.readAsDataURL(image);
+                }
+            }
+
+
+            function uploadImage() {
+                window.alert('success');
+                var src = document.getElementsByTagName("img")[0].src;
+                console.log(src);
+
+                const request = new XMLHttpRequest();
+
+                request.open("GET", "../identificate?src="+src, false);
+                request.send();
+            }
+
+        </script>
     </body>
 </html>
