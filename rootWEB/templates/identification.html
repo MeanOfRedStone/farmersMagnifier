@@ -48,13 +48,17 @@
         <div>
             <!--        이미지 업로드 파트-->
             <div>
-                <div class="button">
-                    <label for="image">
-                            Click Here!
-                    </label>
+                <form method="post" action="../image/" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="button">
+                        <label for="image">
+                                Click Here!
+                        </label>
 
-                </div>
-                <input type="file" id="image" accept="image/*" onchange="setThumbnail(event);"/>
+                    </div>
+                    <input type="file" name="file" id="image" accept="image/*" onchange="setThumbnail(event);"/>
+                    <button type="submit">submit</button>
+                </form>
             </div>
 
 
@@ -69,12 +73,17 @@
             <!--2023 06 25 모델 판별 연결 kts -->
             <div>
                 <a href="../classfication/" class="btn btn-default btn-flat">판별</a>
-                <h5>{{class}}</h5>
-                <div>
-                <img src= "../../{{imgg}}" />
-                </div>
-                <a>{{imgg}}</a>
-                <a><img src="../../rootWEB/{{imgg}}" /></a>
+                    <div>
+                         {% if class != null %}
+                           <a>{{class}}</a>
+                        {% endif %}
+                     </div>
+                    <h5>{{score}}</h5>
+                   <div>
+                    {% if imgg != null %}
+                         <img src="../../{{imgg}}">
+                    {% endif %}
+                   </div>
             </div>
         </div>
         <!-- Footer-->
@@ -123,13 +132,11 @@
             function setThumbnail(event){
                 for(var image of event.target.files){
                     var reader = new FileReader();
-
                     reader.onload = function(event){
                         var img = document.createElement("img");
                         img.setAttribute("src", event.target.result);
                         document.querySelector("div#image_container").appendChild(img);
                     };
-
                     console.log(image);
                     reader.readAsDataURL(image);
                 }
@@ -140,9 +147,7 @@
                 window.alert('success');
                 var src = document.getElementsByTagName("img")[0].src;
                 console.log(src);
-
                 const request = new XMLHttpRequest();
-
                 request.open("GET", "../identificate?src="+src, false);
                 request.send();
             }

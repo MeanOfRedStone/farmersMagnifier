@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'webApp',
-    'classficationApp'
 ]
 
 MIDDLEWARE = [
@@ -135,5 +134,12 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# media root (이미지 불러오기 위해)
+# 유저가 업로드하면 자동으로 폴더가 생성 됨
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# media root에서 제공되는 미디어를 처리하는 url
+# 비어 있지 않는 값으로 설정한다면 반드시 '/'로 끝나야한다.
+MEDIA_URL = '/media/'
 
 

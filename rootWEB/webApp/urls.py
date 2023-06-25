@@ -17,11 +17,18 @@ urlpatterns = [
     #정보게시판 글 읽기
     path('viewInformation/', views.viewInformation),
 
+
     # 병충해 판별 게시판
     # 게시판 링크 -> classificationApp의 url upload 에서 대체한다.
-    # path('identification/', views.identification),
+    path('identification/', views.identification),
+    # path('upload/', views.upload, name ="upload"),
     # 이미지 업로드 후 전송
     path('identificate/', views.identificate),
+    #이미지 업로드 후 저장
+    path('image/', views.image),
+
+
+
     #정보 공유 게시판
     path('communicate/', views.communicate),
 
