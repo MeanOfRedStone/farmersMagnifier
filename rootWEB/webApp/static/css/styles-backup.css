@@ -7585,6 +7585,10 @@ textarea.form-control-lg {
   margin-bottom: 3rem !important;
 }
 
+.my-auto {
+  margin-top: auto !important;
+  margin-bottom: auto !important;
+}
 
 .mt-0 {
   margin-top: 0 !important;
@@ -8077,11 +8081,6 @@ textarea.form-control-lg {
 .text-white {
   --bs-text-opacity: 1;
   color: rgba(var(--bs-white-rgb), var(--bs-text-opacity)) !important;
-}
-
-.text-gray{
-    --bs-text-opacity: 1;
-  color: rgba(var(--bs-gray-rgb), var(--bs-text-opacity)) !important;
 }
 
 .text-body {
@@ -10842,7 +10841,7 @@ textarea.form-control-lg {
 header.masthead {
   position: relative;
   background-color: #343a40;
-  background: url("../assets/img/bg_farm3.jpg") no-repeat center center;
+  background: url("../assets/img/bg_farm2.jpg") no-repeat center center;
   background-size: cover;
   padding-top: 8rem;
   padding-bottom: 8rem;
@@ -10855,7 +10854,7 @@ header.masthead:before {
   width: 100%;
   top: 0;
   left: 0;
-  opacity: 0.35;
+  opacity: 0.5;
 }
 header.masthead h1, header.masthead .h1 {
   font-size: 2rem;
