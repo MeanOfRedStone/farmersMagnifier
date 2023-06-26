@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
-<html lang="en">
+<html lang="en" xmlns:display="http://www.w3.org/1999/xhtml">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -15,6 +15,11 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+         <!--nordic css 20230626 -->
+        <meta name="keywords" content="tailwind,tailwindcss,tailwind css,css,starter template,free template,store template, shop layout, minimal, monochrome, minimalistic, theme, nordic">
+        <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/>
+
+        <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
 
         <style>
             .home{
@@ -26,65 +31,159 @@
                 color : black;
             }
 
+            .work-sans {
+                font-family: 'Work Sans', sans-serif;
+            }
+
+            #menu-toggle:checked + #menu {
+                display: block;
+            }
+
+            .hover\:grow {
+                transition: all 0.3s;
+                transform: scale(1);
+            }
+
+            .hover\:grow:hover {
+                transform: scale(1.02);
+            }
+
+            #img-logout{
+               width:26px;
+               height: 26px;
+               margin-top: 8px;
+               position : relative;
+               left : 22px;
+            }
+             #main-plant{
+               width:30px;
+               height: 30px;
+               margin-bottom: 10px;
+
+            }
+           #name-menu{
+                position: relative;
+                right: 1200px;
+           }
+            #plant-main{
+                margin: 0 auto;
+                position: relative;
+                left: 150px;
+            }
+
         </style>
     </head>
-    <body>
-        <!-- Navigation-->
-        <nav class="navbar navbar-light bg-light static-top">
-            <h3><a class="home" href="../home/">DR.PLANT</a></h3>
-            <div class="container">
-                <a class="navbar-brand" href="../information/">병충해 정보</a>
-                <a class="navbar-brand" href="../identification/">병충해 판별</a>
-                <a class="navbar-brand" href="../communicate/">정보 공유</a>
-                <a class="navbar-brand" href="#!">게시판 3</a>
-                {% if name %}
-                    <h5>{{name}} 님</h5>
-                    <a href="../logout/" class="btn btn-default btn-flat">Log Out</a>
-                {% endif %}
-            </div>
-        </nav>
+     <body class="bg-white text-gray-600 work-sans leading-normal text-base tracking-normal">
 
+    <!--Nav-->
+    <nav id="header" class="w-full z-30 top-0 py-1">
+        <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-6 py-3">
 
-        <div>
-            <!--        이미지 업로드 파트-->
-            <div>
-                <form method="post" action="../image/" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    <div class="button">
-                        <label for="image">
-                                Click Here!
-                        </label>
+            <label for="menu-toggle" class="cursor-pointer md:hidden block">
+                <svg class="fill-current text-gray-900" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                    <title>menu</title>
+                    <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+                </svg>
+            </label>
+            <input class="hidden" type="checkbox" id="menu-toggle" />
 
-                    </div>
-                    <input type="file" name="file" id="image" accept="image/*" onchange="setThumbnail(event);"/>
-                    <button type="submit">submit</button>
-                </form>
+            <div class="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1" id="menu">
+                <nav id="name-menu">
+                    <ul class="md:flex items-center justify-between text-base text-gray-700 pt-2 md:pt-0">
+                        <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="../information/">병충해 정보</a></li>
+                        <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="../identification/">병충해 판별</a></li>
+                    </ul>
+                </nav>
             </div>
 
-
-            <!-- 이미지 업로드 파트 끝-->
-            <!-- 업로드한 이미지 출력부-->
-            <div id="image_container"></div>
-            <!-- 업로드 이미지 끝-->
-            <!-- 판별 기능 연결 버튼  -->
-            <div>
-                <button id="submitBtn" onclick="uploadImage();">질병 판별</button>
+            <div class="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1" id="menu2">
+                <nav>
+                    <ul class="md:flex items-center justify-between text-base text-gray-700 pt-2 md:pt-0">
+                        <li><a class="inline-block no-underline hover:text-black py-2 px-4" >{{name}} 님</a></li>
+                        <li><a class="inline-block no-underline hover:text-black" href="../logout/">
+<!--                                <svg class="fill-current hover:text-black" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">-->
+<!--                                    <circle fill="none" cx="12" cy="7" r="3" />-->
+<!--                                    <path d="{% static 'assets/img/icons8.png' %}"  />-->
+<!--                                </svg>-->
+                             <img id="img-logout" src="{% static 'assets/img/icons8.png' %}"/>
+                            </a></li>
+                    </ul>
+                </nav>
             </div>
-            <!--2023 06 25 모델 판별 연결 kts -->
-            <div>
-                <a href="../classfication/" class="btn btn-default btn-flat">판별</a>
+
+            <div id="plant-main" class="order-1 md:order-2">
+                <a class="flex items-center tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl " href="../home/">
+<!--                    <svg class="fill-current text-gray-800 mr-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">-->
+<!--                        <path d="M5,22h14c1.103,0,2-0.897,2-2V9c0-0.553-0.447-1-1-1h-3V7c0-2.757-2.243-5-5-5S7,4.243,7,7v1H4C3.447,8,3,8.447,3,9v11 C3,21.103,3.897,22,5,22z M9,7c0-1.654,1.346-3,3-3s3,1.346,3,3v1H9V7z M5,10h2v2h2v-2h6v2h2v-2h2l0.002,10H5V10z" />-->
+<!--                    </svg>-->
+                    <img id="main-plant" src="{% static 'assets/img/mainplant.png' %}"/>
+                    DR.PLANT
+                </a>
+            </div>
+
+            <div class="order-2 md:order-3 flex items-center" id="nav-content">
+
+<!--                <a class="inline-block no-underline hover:text-black" href="#">-->
+<!--                    <svg class="fill-current hover:text-black" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">-->
+<!--                        <circle fill="none" cx="12" cy="7" r="3" />-->
+<!--                        <path d="M12 2C9.243 2 7 4.243 7 7s2.243 5 5 5 5-2.243 5-5S14.757 2 12 2zM12 10c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3S13.654 10 12 10zM21 21v-1c0-3.859-3.141-7-7-7h-4c-3.86 0-7 3.141-7 7v1h2v-1c0-2.757 2.243-5 5-5h4c2.757 0 5 2.243 5 5v1H21z" />-->
+<!--                    </svg>-->
+<!--                </a>-->
+
+<!--                <a class="pl-3 inline-block no-underline hover:text-black" href="#">-->
+<!--                    <svg width="700" height="100">-->
+<!--                      <text-->
+<!--                        x="20" y="60%" fill="#448aff"-->
+<!--                        font-size="17" font-family="'Leckerli One', cursive"-->
+<!--                        letter-spacing="1"-->
+<!--                        word-spacing="15">-->
+<!--                        {{name}} 님-->
+<!--                      </text>-->
+<!--                    </svg>-->
+<!--                </a>-->
+
+            </div>
+        </div>
+    </nav>
+          <!--    파일 업로드 시작   -->
+            <div class="card shadow mb-4">
+                <div class="card-header py-3" style="height: 57px;">
+                </div>
+                        <div class="wrap">
+
+                            <div id="class" class="fixed_img_col">
+                                <div>
+                                    <form method="post" action="../image/" enctype="multipart/form-data">
+                                            {% csrf_token %}
+                                            <div class="button">
+                                                <label for="image"></label>
+                                            </div>
+                                                <input type="file" name="file" id="image" accept="image/*" onchange="setThumbnail(event);"/>
+                                                <button type="submit">submit</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                <div>
+<!--                <a href="../classfication/" class="btn btn-default btn-flat">판별</a>-->
                     <div>
                          {% if class != null %}
                            <a>{{class}}</a>
                         {% endif %}
-                     </div>
+                    </div>
                     <h5>{{score}}</h5>
-                   <div>
-                    {% if imgg != null %}
-                         <img src="../../{{imgg}}">
-                    {% endif %}
-                   </div>
-            </div>
+                    <div>
+                        {% if imgg != null %}
+                            <img src="../../{{imgg}}">
+                        {% endif %}
+                    </div>
+                 </div>
+<!--            <div>-->
+<!--                <a href="../DeleteAllFiles/" class="btn btn-default btn-flat">이미지삭제</a>-->
+
+<!--            </div>-->
+
         </div>
         <!-- Footer-->
         <footer class="footer bg-light">

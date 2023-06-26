@@ -26,6 +26,8 @@ urlpatterns = [
     path('identificate/', views.identificate),
     #이미지 업로드 후 저장
     path('image/', views.image),
+    # #이미지 파일 삭제
+    # path('DeleteAllFiles/', views.DeleteAllFiles),
 
 
 
