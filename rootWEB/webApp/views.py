@@ -111,7 +111,7 @@ def species(request):
 
     # 불러온 카테고리에 해당한 값을 pest_information db에서 불러옴
     # 우선 지금 db가 안바뀌어서 values 그대로 사용 추후 values('pest_nm')으로 바꿔줘야 한다.
-    pests = pest_information.objects.filter(plant_nm=species).values('pest_name', 'pest_img', 'information_no')
+    pests = pest_information.objects.filter(plant_nm=species).values('pest_name', 'pest_img', 'information_no', 'plant_nm')
     print(">>>>>> debug : names = ", pests)
 
     length = len(pests)
@@ -123,7 +123,7 @@ def species(request):
 
     #개체 하나당 딕셔너리를 만들어줘서 리스트에 넣어준다. 리스트는 인덱스로 딕셔녀리를 가져오고. 딕셔너리(obj)는 키값으로 값을 부른다.
     for i in range(0, length):
-        response_json.append({'pest_nm': pests.values()[i]['pest_name'], 'pest_img': pests.values()[i]['pest_img'], 'information_no': pests.values()[i]['information_no']})
+        response_json.append({'pest_nm': pests.values()[i]['pest_name'], 'pest_img': pests.values()[i]['pest_img'], 'information_no': pests.values()[i]['information_no'], 'plant_nm': pests.values()[i]['plant_nm']})
     # response_json.append({'pest_nm': pest_nm, 'pest_img': pest_img})
     print(">>>>>>debug : pest_data = ", response_json)
 
@@ -131,13 +131,14 @@ def species(request):
 #병충해 정보 읽기
 def viewInformation(request):
     no = request.GET['no']
-    length = len(no)
-    information_no = no[1:length-1]
+    print(">>>>>> debug , no = ", no)
+    no = str(no)
+    if(no.isnumeric() == False):
+        length = len(no)
+        no = no[1:length-1]
 
     #pest_information 의  키 값 information_no 를 받아온다.
-    print(">>>>>> debug , params = ", information_no)
-
-    information = pest_information.objects.get(information_no=information_no)
+    information = pest_information.objects.get(information_no=no)
 
     print(">>>>>> debug - information : ", information)
 
@@ -163,7 +164,7 @@ def identification(request):
         context = {}
         context['name'] = request.session['session_name']
         context['user_id'] = request.session['session_user_id']
-        return render(request, 'identification_backup.html', context)
+        return render(request, 'identification.html', context)
 
     messages.add_message(request, messages.INFO, "로그인이 필요합니다.")
     return render(request, 'login.html')
@@ -306,7 +307,7 @@ def image(request):
         context['name'] = request.session['session_name']
         context['user_id'] = request.session['session_user_id']
 
-        return render(request, 'identification.html', context)
+        return render(request, 'image.html', context)
 
 
 

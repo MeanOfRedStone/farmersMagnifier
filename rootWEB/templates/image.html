@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>DR.PLANT</title>
+        <title>Landing Page - Start Bootstrap Theme</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="{% static 'assets/favicon.ico' %}" />
         <!-- Bootstrap icons-->
@@ -15,7 +15,7 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
-        <!--nordic css 20230626 -->
+         <!--nordic css 20230626 -->
         <meta name="keywords" content="tailwind,tailwindcss,tailwind css,css,starter template,free template,store template, shop layout, minimal, monochrome, minimalistic, theme, nordic">
         <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/>
 
@@ -24,21 +24,124 @@
             .home{
                 text-decoration-line: none;
                 color: inherit;
+                color: black;
             }
 
-            a:hover {
-                color : black;
+
+
+            .identification_button {
+                display: flex;
+                justify-content: center;
+            }
+            label {
+                cursor: pointer;
+                font-size: 1.2em;
+                color : blue;
+                font-weight: 700;
+                text-decoration-line: underline;
             }
 
-            #identification{
-                width: 505px;
-                height: 480px;
-                display: block;
-                margin: 0 auto;
+            /* 못생긴 기존 input 숨기기 */
+            #image {
+                visibility: hidden;
             }
-            #information{
-                width: 100%;
-                height: 480px;
+
+            .identification_container {
+    		    display: flex;
+   		        height: 100%;
+    		    flex-direction: column;
+                position: relative;
+    		    border-style : dashed;
+    		    border-width : 1.5px;
+    		    border-color: black;
+    		    margin-left: 200px;
+    		    margin-right:200px;
+    		    margin-top: 30px;
+    		    margin-bottom: 50px;
+    		    border-radius: 10px;
+    		    padding-bottom: 50px;
+
+
+
+	        }
+
+	        .image_show {
+  		        flex: 1;
+   		        display: flex;
+   		        flex-direction: row;
+    		    justify-content: center;
+
+
+	        }
+
+	        .fileContainer {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+            }
+
+            .fileInput {
+                display: flex;
+                align-items: center;
+                border-bottom: solid 1px gray;
+                width: 60%;
+                height: 30px;
+                font-weight : bold;
+            }
+
+            .identificationButton {
+                width: 15%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-left: 10px;
+                border : solid 1px gray;
+                color: white;
+                border-radius: 30px;
+                padding: 10px;
+                font-size: 0.8em;
+                cursor: pointer;
+
+            }
+
+            form{
+                position: relative;
+                width: 50%;
+                margin-right: auto;
+                margin-left: auto;
+
+                margin-bottom: 10px;
+            }
+
+            #preview{
+                width: 150px;
+                height: 150px;
+                margin-bottom: 210px;
+                margin-top: 210px;
+
+            }
+
+            img{
+                width: 350px;
+                height: 350px;
+                margin-bottom: 110px;
+                margin-top: 110px;
+            }
+
+            .divForm{
+                border-top-style: solid;
+                border-width: 1px;
+                border-color : gray;
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+
+            button{
+                border : 0;
+                outline : 0;
+                background-color: white;
+                font-weight: 800;
             }
 
              #border1{
@@ -53,15 +156,15 @@
             #img-logout{
                width:26px;
                height: 26px;
-               margin-top: 8px;
-               position : relative;
-               left : 22px;
+               margin-bottom: 105px;
+
             }
             #main-plant{
                width:30px;
                height: 30px;
-               margin-bottom: 10px;
-
+               position: relative;
+               top: 0px;
+               margin-top: 95px;
             }
            #name-menu{
                 position: relative;
@@ -89,6 +192,49 @@
                 transform: scale(1.02);
             }
 
+            #header{
+               height: 88.68px;
+            }
+            #header-div{
+               height: 80.7px;
+
+            }
+            #plant-main-position{
+              height: 40px;
+              font-size: 2rem;
+            }
+            #menu-position{
+
+               height: 48.71px;
+            }
+            #menu-infor{
+               margin-top: 8px;
+               position : relative;
+               left :6px;
+
+               line-height: 1.75rem;
+                font-size: 1.2rem;
+
+               font-weight: 600;
+               color: #696969
+            }
+            #menu-identi{
+               margin-top: 8px;
+               position : relative;
+                left :40px;
+
+                line-height: 1.75rem;
+                font-size: 1.2rem;
+
+               font-weight: 600;
+               color: #696969
+            }
+            #menu{
+            height: 48.71px;
+            }
+            #menu2{
+              height: 48.71px;
+            }
 
 
 
@@ -152,6 +298,7 @@
             #board_logo3, #board_logo2, #board_logo{
                 line-height: 1.75rem;
                 font-size: 1.2rem;
+
                 font-weight: 600;
                 color: #696969
             }
@@ -161,15 +308,51 @@
             }
 
 
+
+            #category_tag, #pest_name_tag{
+                position: relative;
+                left: 50px;
+            }
+
+            #icon_tag{
+                position: relative;
+                right: 45px;
+            }
+
+
+
+            .identificate{
+                position: relative;
+                margin-left: auto;
+                margin-right: auto;
+
+                border-style: solid;
+                border-width: 1.0px;
+            }
+
+            .identificate_container{
+                position : relative;
+                margin-left:300px;
+                margin-right:300px;
+                border-style : solid;
+    		    border-width : 1.5px;
+    		    border-color: black;
+    		    border-radius: 10px;
+            }
+
+            #identificate_font{
+                font-size: 45px;
+            }
+
+
+
         </style>
     </head>
-
-
     <body class="bg-white text-gray-600 work-sans leading-normal text-base tracking-normal">
 
-    <!--Navigation-->
+    <!--Nav-->
     <nav id="header" class="w-full z-30 top-0 py-1">
-        <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-6 py-3">
+        <div id="header-div" class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-6 py-3">
 
             <label for="menu-toggle" class="cursor-pointer md:hidden block">
                 <svg class="fill-current text-gray-900" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
@@ -181,9 +364,9 @@
 
             <div class="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1" id="menu">
                 <nav id="name-menu">
-                    <ul class="md:flex items-center justify-between text-base text-gray-700 pt-2 md:pt-0">
-                        <li><a id="board_logo" class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="../information/">병충해 정보</a></li>
-                        <li><a id="board_logo2" class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="../identification/">병충해 판별</a></li>
+                    <ul id = "menu-position" class="md:flex items-center justify-between text-base text-gray-700 pt-2 md:pt-0">
+                        <li><a id="menu-infor" class="inline-block no-underline hover:text-black hover:underline py-1 px-2" href="../information/">병충해 정보</a></li>
+                        <li><a id="menu-identi" class="inline-block no-underline hover:text-black hover:underline py-1 px-2" href="../identification/">병충해 판별</a></li>
                     </ul>
                 </nav>
             </div>
@@ -192,68 +375,40 @@
                 <nav>
                     <ul class="md:flex items-center justify-between text-base text-gray-700 pt-2 md:pt-0">
                         <li><a id="board_logo3" class="inline-block no-underline hover:text-black py-2 px-4" >{{name}} 님</a></li>
-                        <li><a id="icon_logo" class="inline-block no-underline hover:text-black" href="../logout/">
+                        <li><a id="icon_logo" class="inline-block no-underline hover:text-black py-2 px-4" href="../logout/">
                              <img id="img-logout" src="{% static 'assets/img/icons8.png' %}"/>
-                            </a>
-                        </li>
+                            </a></li>
                     </ul>
                 </nav>
             </div>
 
             <div id="plant-main" class="order-1 md:order-2">
-                <a id="main_logo" class="flex items-center tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl " href="../home/">
+                <a id="plant-main-position"class="flex items-center tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl " href="../home/">
+
                     <img id="main-plant" src="{% static 'assets/img/mainplant.png' %}"/>
                     DR.PLANT
                 </a>
             </div>
         </div>
     </nav>
-    <!--navigation 끝  -->
 
+<!--    판별할 사진 업로드-->
+    <div style="margin-bottom:0;" id="card_exception" class="card shadow mb-4">
+        <div class="identificate_container">
+            <div>
+                {% if imgg != null %}
+                     <img class="identificate" src="../../{{imgg}}">
+                {% endif %}
+               </div>
 
-        <!-- Masthead-->
-        <header class="masthead">
-            <div class="container position-relative">
-                <div class="row justify-content-center">
-                    <div class="col-xl-6">
-                        <div class="text-center text-white">
-                            <!-- Page heading-->
-                            <h1 id="heading_mb-2" class="mb-2">DR.PLANT</h1>
-                            <h3 id="heading_h3" > AI 기술을 활용해 병충해를 판별하세요.</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
-        <!-- Icons Grid-->
-
-        <!-- Image Showcases-->
-        <section class="showcase">
-            <div class="container-fluid p-0">
-                <div class="row g-0">
-                    <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('assets/img/identification.png')"><img id="identification" src="{% static 'assets/img/identification.png' %}" /></div>
-                    <div id="margin-auto1" style="background-color:#f8f9fa;" class="col-lg-6 order-lg-1 my-auto showcase-text">
-                        <h2 class="landing_h2">병충해 판별</h2>
-                        <p style="color:black;" class="lead mb-0">When you use a theme created by Start Bootstrap, you know that the theme will look great on any device, whether it's a phone, tablet, or desktop the page will behave responsively!</p>
-                    </div>
-                </div>
-                <div class="row g-0">
-                    <div class="col-lg-6 text-white showcase-img" style="background-image: url('assets/img/bg-showcase-2.jpg')"><img id="information" src="{% static 'assets/img/information2.jpg' %}"/></div>
-                    <div id="margin-auto" style="background-color: #f8f9fa;" class="col-lg-6 my-auto showcase-text">
-                        <h2 class="landing_h2">병충해 정보</h2>
-                        <p style="color:#212529;" class="lead mb-0">Newly improved, and full of great utility classes, Bootstrap 5 is leading the way in mobile responsive web development! All of the themes on Start Bootstrap are now using Bootstrap 5!</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Testimonials-->
-        <section  class="testimonials text-center bg-light">
-            <div class="container">
-
-
-            </div>
-        </section>
-
+                <div style="text-align:center; ">
+                  <h1 id ="identificate_font">{{score}}일치:<br/>{% if class != null %}
+                       <a >{{class}}</a>
+                    {% endif %}</h1>
+                 </div>
+        </div>
+    </div>
+    <!-- 판별할 사진 업로드 파트 끝-->
         <!-- Footer-->
         <footer class="footer bg-light">
             <div class="container">
@@ -275,7 +430,9 @@
 
                 </div>
             </div>
+
         </footer>
+
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
@@ -285,5 +442,29 @@
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
+        <script>
+            function setThumbnail(event){
+                var preview = document.getElementById('preview');
+                preview.remove("");
+                for(var image of event.target.files){
+                    var reader = new FileReader();
+                    reader.onload = function(event){
+                        var img = document.createElement("img");
+
+                        img.setAttribute("src", event.target.result);
+                        document.querySelector("div#image_show").appendChild(img);
+
+                    };
+                    console.log(image);
+
+                    var name = document.getElementById('fileName');
+                    name.textContent = image.name;
+                    reader.readAsDataURL(image);
+                }
+            }
+
+
+        </script>
     </body>
 </html>
