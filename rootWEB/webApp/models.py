@@ -23,3 +23,7 @@ class pest_information(models.Model):
                                 null=True)  # Field name made lowercase.
     pest_name = models.CharField(db_column='PEST_NAME', max_length=25, default='')
 
+class upload_table(models.Model):
+    upload_no = models.AutoField(db_column='UPLOAD_NO', primary_key=True)
+    image = models.ImageField(db_column='IMAGE', null=False)
+
