@@ -1,3 +1,5 @@
+import os.path
+import os
 from django.core import serializers
 from django.core.paginator import Paginator
 from django.shortcuts import render, redirect, get_object_or_404
@@ -25,7 +27,7 @@ def main(request):
         context = {}
         context['name'] = request.session['session_name']
         context['user_id'] = request.session['session_user_id']
-        return render(request, 'main2.html', context)
+        return render(request, 'main.html', context)
 
     return render(request, 'main.html')
 
@@ -161,7 +163,7 @@ def identification(request):
         context = {}
         context['name'] = request.session['session_name']
         context['user_id'] = request.session['session_user_id']
-        return render(request, 'identification.html', context)
+        return render(request, 'identification_backup.html', context)
 
     messages.add_message(request, messages.INFO, "로그인이 필요합니다.")
     return render(request, 'login.html')
@@ -232,11 +234,12 @@ def identificate(request):
     context['class'] = class_name + " " + str(max_prob)[0:4] + "%"
     # context['imgg'] = image_path
 
-    return render(request, 'identification.html', context)
+    return render(request, 'identification_backup.html', context)
 
 def image(request):
     # 로그인 세션 유지
     if (request.session.get('session_user_id')):
+
         file = request.FILES['file']
 
         upload_table(image=file).save()
@@ -302,6 +305,7 @@ def image(request):
 
         context['name'] = request.session['session_name']
         context['user_id'] = request.session['session_user_id']
+
         return render(request, 'identification.html', context)
 
 
@@ -414,6 +418,17 @@ def logout(request):
     request.session['session_name'] = {}
     request.session['session_user_id'] = {}
     return redirect('home')
+
+# 서버 내렷다 올릴때 해당 폴더안에 파일 삭제
+def DeleteAllFiles(filePath):
+    if os.path.exists(filePath):
+        for file in os.scandir(filePath):
+            os.remove(file.path)
+        return 'Remove All File'
+    else:
+        return 'Directory Not Found'
+print(DeleteAllFiles('media/'))
+
 
 
 
