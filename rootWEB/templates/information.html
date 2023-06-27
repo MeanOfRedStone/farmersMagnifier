@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Tailwind Starter Template - Nordic Shop: Tailwind Toolbox</title>
+    <title>병충해 정보 - DR.PLANT</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'assets/img/mainplant.png' %}" />
     <meta name="description" content="Free open source Tailwind CSS Store template">
     <meta name="keywords" content="tailwind,tailwindcss,tailwind css,css,starter template,free template,store template, shop layout, minimal, monochrome, minimalistic, theme, nordic">
 
@@ -176,7 +177,7 @@
             }
            #name-menu{
                 position: relative;
-                right: 1200px;
+                right: 1090px;
            }
             #plant-main{
                 margin: 0 auto;
@@ -263,11 +264,34 @@
                 left: 50px;
             }
 
+            #pest_name_tag{
+                font-size: 19px;
+                font-weight: 550;
+            }
+
             #icon_tag{
                 position: relative;
                 right: 45px;
             }
 
+            #informationCategory{
+                position : relative;
+                margin-left: 40px;
+            }
+
+            .select_box{
+                position:relative;
+                margin-right: 40px;
+
+            }
+
+            #topContainer{
+                padding-bottom: 0;
+            }
+
+            #pest{
+                padding-top: 0 !important;
+            }
     </style>
 
 </head>
@@ -320,12 +344,12 @@
 
                         <section class="bg-white py-8">
 
-                            <div class="container mx-auto flex items-center flex-wrap pt-4 pb-12">
+                            <div id="topContainer" class="container mx-auto flex items-center flex-wrap pt-4 pb-12">
 
                                 <div id="store" class="w-full z-30 top-0 px-6 py-1">
                                     <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-3">
 
-                                        <a style="font-size:30px;" class="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl " href="#">질병정보</a>
+                                        <a id="informationCategory" style="font-size:30px;" class="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl " href="#">질병정보</a>
 
                                         <div class="flex items-center" id="store-nav-content">
                                             <div class="select_box">
@@ -363,7 +387,7 @@
 
                         <!--                                페이지네이터 css weatherClothes 참고-->
 <!--                                페이지 네이터-->
-                        <div class="paginator">
+                        <div id="paginator_information" class="paginator">
                             <div>
                                 {% if pests.has_previous %}
                                 <a class="abutton" href="?page=1" style="color:black;">맨 앞으로</a>
@@ -389,35 +413,25 @@
             </div>
             <!--표 끝-->
 
-        <!-- Footer-->
+         <!-- Footer-->
         <footer class="footer bg-light">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
                         <ul class="list-inline mb-2">
-                            <li class="list-inline-item"><a href="#!">About</a></li>
+                            <li class="list-inline-item">홍석의(조장)</li>
                             <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="#!">Contact</a></li>
+                            <li class="list-inline-item">김태성</li>
                             <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="#!">Terms of Use</a></li>
+                            <li class="list-inline-item">송민준</li>
                             <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="#!">Privacy Policy</a></li>
+                            <li class="list-inline-item">신동훈</li>
+                            <li class="list-inline-item">⋅</li>
+                            <li class="list-inline-item">안창훈</li>
                         </ul>
-                        <p class="text-muted small mb-4 mb-lg-0">&copy; Your Website 2023. All Rights Reserved.</p>
+                        <p class="text-muted small mb-4 mb-lg-0">&copy; TEAM 개미들 2023. All Rights Reserved.</p>
                     </div>
-                    <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
-                        <ul class="list-inline mb-0">
-                            <li class="list-inline-item me-4">
-                                <a href="#!"><i class="bi-facebook fs-3"></i></a>
-                            </li>
-                            <li class="list-inline-item me-4">
-                                <a href="#!"><i class="bi-twitter fs-3"></i></a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#!"><i class="bi-instagram fs-3"></i></a>
-                            </li>
-                        </ul>
-                    </div>
+
                 </div>
             </div>
         </footer>
@@ -434,14 +448,14 @@
         <script>
             $(function () {
                 $('#plant_category').change(function () {
-                    window.alert('event')
+<!--                    window.alert('event')-->
                     $.ajax({
                     url: '../category/',
                     type: 'post',
                     data: {'csrfmiddlewaretoken' : '{{csrf_token}}', 'plant_category' : $('#plant_category').val() },
                     dataType : 'json',
                     success : function(lst) {
-                        window.alert('success')
+<!--                        window.alert('success')-->
 <!--                    jquery each 함수  function 이하에서 index 배열의 인덱스 / 두번째 매개변수는 값-->
                         $.each(lst, function(idx, obj) {
                             console.log(obj.species)
@@ -449,7 +463,7 @@
                             $.each(obj.species, function(idx, species) {
                                 txt += '<option>'+species+'</option>'
                             })
-                            window.alert(txt)
+<!--                            window.alert(txt)-->
                             $('#plant_species').empty().html(txt)
                         })
 
@@ -458,14 +472,15 @@
                 })
 
                 $('#plant_species').change(function () {
-                    window.alert('event')
+<!--                    window.alert('event')-->
                     $.ajax({
                     url: '../species/',
                     type: 'post',
                     data: {'csrfmiddlewaretoken' : '{{csrf_token}}', 'plant_species' : $('#plant_species').val() },
                     dataType : 'json',
                     success : function(lst) {
-                        window.alert('success')
+<!--                        window.alert('success')-->
+                        $('#paginator_information').empty()
                         $('#pest').empty()
                         var txt = ''
 <!--                    jquery each 함수  function 이하에서 index 배열의 인덱스 / 두번째 매개변수는 값-->
@@ -484,7 +499,7 @@
 <!--                            txt +="<ul><li><a href=../viewInformation?no='"+obj.information_no+"'><span class='thumb'><img src='"+obj.pest_img+"'></span>"-->
 <!--                            txt +="<strong>"+obj.pest_nm+"</strong></a></li></ul>"-->
 
-                            window.alert(txt)
+<!--                            window.alert(txt)-->
 
                         })
                         $('#pest').html(txt)

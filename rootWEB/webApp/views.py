@@ -368,23 +368,22 @@ def register(request):
     print(">>>>>>debug, params : ", name, id, pwd, pwd_con)
     #비밀번호(pwd)와 비밀번호 확인(pwd_con)이 일치해야 회원가입이 진행됨
     #그렇지 않은 경우 다시 회원가입 사이트로 돌아간 뒤
-    try:
-        if(pwd == pwd_con):
-            if(user_information.objects.get(user_id=id)):
-                messages.add_message(request, messages.INFO, "이미 존재하는 ID입니다.")
-                return redirect('join')
-            else:
-                user_information(user_name = name, user_id = id, user_password = pwd).save()
-                messages.add_message(request, messages.INFO, "회원가입이 완료되었습니다.")
-                return redirect('login')
-        else:
-            messages.add_message(request, messages.INFO, "비밀번호를 확인하세요.")
-            return redirect('join')
-    #입력하지 않는 정보가 있을 경우 try-except로 처리
-    except user_information.DoesNotExist:
-        user = None
-        messages.add_message(request, messages.INFO, "입력하지 않는 정보가 있습니다.")
+    # try:
+    if(pwd == pwd_con):
+        user_information(user_name=name, user_id=id, user_password=pwd).save()
+        messages.add_message(request, messages.INFO, "회원가입이 완료되었습니다.")
+        return redirect('login')
+    # elif(user_information.objects.get(user_id=id)):
+    #     messages.add_message(request, messages.INFO, "이미 존재하는 ID입니다.")
+    #     return redirect('join')
+    else:
+        messages.add_message(request, messages.INFO, "비밀번호를 확인하세요.")
         return redirect('join')
+
+    # #입력하지 않는 정보가 있을 경우 try-except로 처리
+    # except:
+    #     messages.add_message(request, messages.INFO, "입력하지 않는 정보가 있습니다.")
+    #     return redirect('join')
 
 #로그인
 def check(request):

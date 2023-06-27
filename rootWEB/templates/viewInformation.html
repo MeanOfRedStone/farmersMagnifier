@@ -6,86 +6,396 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Landing Page - Start Bootstrap Theme</title>
+        <title>정보 - DR.PLANT</title>
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="{% static 'assets/favicon.ico' %}" />
+        <link rel="icon" type="image/x-icon" href="{% static 'assets/img/mainplant.png' %}" />
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" type="text/css" />
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+         <!--nordic css 20230626 -->
+        <meta name="keywords" content="tailwind,tailwindcss,tailwind css,css,starter template,free template,store template, shop layout, minimal, monochrome, minimalistic, theme, nordic">
+        <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/>
 
-
-        <!-- 읽기 화면 css -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-	    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="{% static 'fonts/icomoon/style.css' %}">
-        <link rel="stylesheet" href="{% static 'fonts/flaticon/font/flaticon.css' %}">
-        <link rel="stylesheet" href="{% static 'css/tiny-slider.css' %}">
-        <link rel="stylesheet" href="{% static 'css/aos.css' %}">
-        <link rel="stylesheet" href="{% static 'css/style3.css' %}">
-
-
-
-
-
+        <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
         <style>
             .home{
                 text-decoration-line: none;
                 color: inherit;
-            }
-
-            a:hover {
-                color : black;
+                color: black;
             }
 
 
 
-
-
-
-
-            .paginator{
+            .identification_button {
+                display: flex;
                 justify-content: center;
-                display:flex;
+            }
+            label {
+                cursor: pointer;
+                font-size: 1.2em;
+                color : blue;
+                font-weight: 700;
+                text-decoration-line: underline;
+            }
+
+            /* 못생긴 기존 input 숨기기 */
+            #image {
+                visibility: hidden;
+            }
+
+            .identification_container {
+    		    display: flex;
+   		        height: 100%;
+    		    flex-direction: column;
+                position: relative;
+    		    border-style : dashed;
+    		    border-width : 1.5px;
+    		    border-color: black;
+    		    margin-left: 200px;
+    		    margin-right:200px;
+    		    margin-top: 30px;
+    		    margin-bottom: 50px;
+    		    border-radius: 10px;
+    		    padding-bottom: 50px;
+
+
+
+	        }
+
+	        .image_show {
+  		        flex: 1;
+   		        display: flex;
+   		        flex-direction: row;
+    		    justify-content: center;
+
+
+	        }
+
+	        .fileContainer {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+            }
+
+            .fileInput {
+                display: flex;
+                align-items: center;
+                border-bottom: solid 1px gray;
+                width: 60%;
+                height: 30px;
+                font-weight : bold;
+            }
+
+            .identificationButton {
+                width: 15%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-left: 10px;
+                border : solid 1px gray;
+                color: white;
+                border-radius: 30px;
+                padding: 10px;
+                font-size: 0.8em;
+                cursor: pointer;
+
+            }
+
+            form{
+                position: relative;
+                width: 50%;
+                margin-right: auto;
+                margin-left: auto;
+
+                margin-bottom: 10px;
+            }
+
+            #preview{
+                width: 150px;
+                height: 150px;
+                margin-bottom: 210px;
+                margin-top: 210px;
+
+            }
+
+            img{
+                width: 350px;
+                height: 350px;
+                margin-bottom: 110px;
+                margin-top: 110px;
+            }
+
+            .divForm{
+                border-top-style: solid;
+                border-width: 1px;
+                border-color : gray;
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+
+            button{
+                border : 0;
+                outline : 0;
+                background-color: white;
+                font-weight: 800;
+            }
+
+             #border1{
+               margin-top: 0;
+               margin-bottom: 0;
+            }
+
+             #border2{
+               margin-top: 0;
+               margin-bottom: 0;
+            }
+            #img-logout{
+               width:26px;
+               height: 26px;
+               margin-bottom: 105px;
+
+            }
+            #main-plant{
+               width:30px;
+               height: 30px;
+               position: relative;
+               top: 0px;
+               margin-top: 95px;
+            }
+           #name-menu{
+                position: relative;
+                right: 1090px;
+           }
+            #plant-main{
+                margin: 0 auto;
+                position: relative;
+                left: 150px;
+            }
+            .work-sans {
+                font-family: 'Work Sans', sans-serif;
+            }
+
+            #menu-toggle:checked + #menu {
+                display: block;
+            }
+
+            .hover\:grow {
+                transition: all 0.3s;
+                transform: scale(1);
+            }
+
+            .hover\:grow:hover {
+                transform: scale(1.02);
+            }
+
+            #header{
+               height: 88.68px;
+            }
+            #header-div{
+               height: 80.7px;
+
+            }
+            #plant-main-position{
+              height: 40px;
+              font-size: 2rem;
+            }
+            #menu-position{
+
+               height: 48.71px;
+            }
+            #menu-infor{
+               margin-top: 6px;
+               position : relative;
+               left :6px;
+
+               line-height: 1.75rem;
+               font-size: 1.2rem;
+
+               font-weight: 600;
+               color: #696969
+            }
+            #menu-identi{
+               margin-top: 6px;
+               position : relative;
+                left :40px;
+
+                line-height: 1.75rem;
+                font-size: 1.2rem;
+
+                font-weight: 600;
+                color: #696969
+            }
+            #menu{
+            height: 48.71px;
+            }
+            #menu2{
+              height: 48.71px;
+            }
+
+
+
+            .landing_h2{
+                box-sizing: border-box;
+                color: rgb(33, 37, 41);
+                display: block;
+                font-size :31.037px;
+                font-weight: 700;
+                height :37.2344px;
+                line-height :37.2444px;
+                margin-block-end: 8px;
+                margin-block-start: 0px;
+                margin-bottom :8px;
+                margin-inline-end: 0px;
+                margin-inline-start: 0px;
+                margin-top: 0px;
+                text-align :start;
+            }
+
+            #heading_mb-2{
+                margin-bottom: 0.5rem !important;
+                display: block;
+                font-size: 3rem;
+                margin-block-start: 0.67em;
+                margin-block-end: 0.67em;
+                margin-inline-start: 0px;
+                margin-inline-end: 0px;
+                font-weight: bold;
+
+                    margin-top: 0;
+                    margin-bottom: 0.5rem;
+                    font-weight: 700;
+                    line-height: 1.2;
+            }
+
+            #heading_h3{
+                display: block;
+                font-size: 2.5em;
+                margin-block-start: 1em;
+                margin-block-end: 1em;
+                margin-inline-start: 0px;
+                margin-inline-end: 0px;
+                font-weight: bold;
+                margin-top: 0;
+                margin-bottom: 0.5rem;
+                font-weight: 700;
+                line-height: 1.2;
+                color:black !important;
+            }
+
+            #margin-auto1, #margin-auto{
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+
+
+            #main_logo{
+                font-size: 2rem;
+            }
+
+            #board_logo3, #board_logo2, #board_logo{
+                line-height: 1.75rem;
+                font-size: 1.2rem;
+
+                font-weight: 600;
+                color: #696969
+            }
+
+            #icon_logo{
+                line-height: 1.75rem;
+            }
+
+
+
+            #category_tag, #pest_name_tag{
+                position: relative;
+                left: 50px;
+            }
+
+            #icon_tag{
+                position: relative;
+                right: 45px;
+            }
+
+            #informationImage{
+                width: 500px !important;
+                height: 500px;
+                position: relative;
+                margin-top : 150px;
+            }
+
+            #informationContent{
+                padding-top:125px;
+            }
+
+            #imageDiv{
+                max-width: 600px;
+            }
+
+            #information_p{
+                font-size: 19px;
+                font-weight: 550;
             }
 
         </style>
     </head>
     <body>
         <!-- Navigation-->
-        <nav class="navbar navbar-light bg-light static-top">
-            <h3><a class="home" href="../home/">DR.PLANT</a></h3>
-            <div class="container">
-                <a class="navbar-brand" href="../information/">병충해 정보</a>
-                <a class="navbar-brand" href="../identification/">병충해 판별</a>
-                <a class="navbar-brand" href="../communicate/">정보 공유</a>
-                <a class="navbar-brand" href="#!">게시판 3</a>
-                {% if name %}
-                    <h5>{{name}} 님</h5>
-                    <a href="../logout/" class="btn btn-default btn-flat">Log Out</a>
-                {% endif %}
+    <nav id="header" class="w-full z-30 top-0 py-1">
+        <div id="header-div" class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-6 py-3">
 
+            <label for="menu-toggle" class="cursor-pointer md:hidden block">
+                <svg class="fill-current text-gray-900" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                    <title>menu</title>
+                    <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+                </svg>
+            </label>
+            <input class="hidden" type="checkbox" id="menu-toggle" />
+
+            <div class="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1" id="menu">
+                <nav id="name-menu">
+                    <ul id = "menu-position" class="md:flex items-center justify-between text-base text-gray-700 pt-2 md:pt-0">
+                        <li><a id="menu-infor" class="inline-block no-underline hover:text-black hover:underline py-1 px-2" href="../information/">병충해 정보</a></li>
+                        <li><a id="menu-identi" class="inline-block no-underline hover:text-black hover:underline py-1 px-2" href="../identification/">병충해 판별</a></li>
+                    </ul>
+                </nav>
             </div>
-        </nav>
+
+            <div class="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1" id="menu2">
+                <nav>
+                    <ul class="md:flex items-center justify-between text-base text-gray-700 pt-2 md:pt-0">
+                        <li><a id="board_logo3" class="inline-block no-underline hover:text-black py-2 px-4" >{{name}} 님</a></li>
+                        <li><a id="icon_logo" class="inline-block no-underline hover:text-black py-2 px-4" href="../logout/">
+                             <img id="img-logout" src="{% static 'assets/img/icons8.png' %}"/>
+                            </a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div id="plant-main" class="order-1 md:order-2">
+                <a id="plant-main-position"class="flex items-center tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl " href="../home/">
+
+                    <img id="main-plant" src="{% static 'assets/img/mainplant.png' %}"/>
+                    DR.PLANT
+                </a>
+            </div>
+        </div>
+    </nav>
 
         <div class="section">
             <div class="container">
-                <div class="row justify-content-between">
-                    <div class="col-lg-7">
-                        <div class="img-property-slide-wrap">
-                            <div class="img-property-slide">
-                                <img src="{{information.pest_img}}" alt="Image" class="img-fluid">
-                            </div>
-                        </div>
+                <div class="row justify-content-center">
+                    <div id="imageDiv" class="col-lg-7">
+                                <img id="informationImage" src="{{information.pest_img}}" alt="Image" class="img-fluid">
                     </div>
-                    <div class="col-lg-4">
+                    <div id="informationContent" class="col-lg-4">
                         <!-- h2 내용 추후 pest_nm 으로 바꿔줘야 한다.   -->
-                        <h2 class="heading text-primary">{{information.pest_name}}</h2>
-                        <p class="meta">{{information.plant_nm}}</p>
-                        <p class="text-black-50">{{information.content}}</p>
+                        <h2 id="heading_h3" class="heading text-primary">{{information.pest_name}}</h2>
+                        <p id="information_p" class="meta">{{information.plant_nm}}</p>
+                        <p style="white-space:pre-line;" class="text-black-50">{{information.content}}</p>
                     </div>
                 </div>
             </div>
@@ -98,29 +408,19 @@
                 <div class="row">
                     <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
                         <ul class="list-inline mb-2">
-                            <li class="list-inline-item"><a href="#!">About</a></li>
+                            <li class="list-inline-item">홍석의(조장)</li>
                             <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="#!">Contact</a></li>
+                            <li class="list-inline-item">김태성</li>
                             <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="#!">Terms of Use</a></li>
+                            <li class="list-inline-item">송민준</li>
                             <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="#!">Privacy Policy</a></li>
+                            <li class="list-inline-item">신동훈</li>
+                            <li class="list-inline-item">⋅</li>
+                            <li class="list-inline-item">안창훈</li>
                         </ul>
-                        <p class="text-muted small mb-4 mb-lg-0">&copy; Your Website 2023. All Rights Reserved.</p>
+                        <p class="text-muted small mb-4 mb-lg-0">&copy; TEAM 개미들 2023. All Rights Reserved.</p>
                     </div>
-                    <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
-                        <ul class="list-inline mb-0">
-                            <li class="list-inline-item me-4">
-                                <a href="#!"><i class="bi-facebook fs-3"></i></a>
-                            </li>
-                            <li class="list-inline-item me-4">
-                                <a href="#!"><i class="bi-twitter fs-3"></i></a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#!"><i class="bi-instagram fs-3"></i></a>
-                            </li>
-                        </ul>
-                    </div>
+
                 </div>
             </div>
         </footer>
@@ -141,66 +441,6 @@
         <script src="{% static 'js/navbar.js' %}"></script>
         <script src="{% static 'js/counter.js' %}"></script>
         <script src="{% static 'js/custom.js' %}"></script>
-        <script>
-            $(function () {
-                $('#plant_category').change(function () {
-                    window.alert('event')
-                    $.ajax({
-                    url: '../category/',
-                    type: 'post',
-                    data: {'csrfmiddlewaretoken' : '{{csrf_token}}', 'plant_category' : $('#plant_category').val() },
-                    dataType : 'json',
-                    success : function(lst) {
-                        window.alert('success')
-<!--                    jquery each 함수  function 이하에서 index 배열의 인덱스 / 두번째 매개변수는 값-->
-                        $.each(lst, function(idx, obj) {
-                            console.log(obj.species)
-                            txt = ''
-                            $.each(obj.species, function(idx, species) {
-                                txt += '<option>'+species+'</option>'
-                            })
-                            window.alert(txt)
-                            $('#plant_species').empty().html(txt)
-                        })
 
-                    }
-                    })
-                })
-
-                $('#plant_species').change(function () {
-                    window.alert('event')
-                    $.ajax({
-                    url: '../species/',
-                    type: 'post',
-                    data: {'csrfmiddlewaretoken' : '{{csrf_token}}', 'plant_species' : $('#plant_species').val() },
-                    dataType : 'json',
-                    success : function(lst) {
-                        window.alert('success')
-                        $('#pest').empty()
-                        var txt = ''
-<!--                    jquery each 함수  function 이하에서 index 배열의 인덱스 / 두번째 매개변수는 값-->
-                        $.each(lst, function(idx, obj) {
-<!--                            alert("idx - "+idx)-->
-<!--                            alert(obj.pest_nm)-->
-<!--                            alert(obj.pest_img)-->
-
-                            console.log(obj.pest_nm)
-
-                            txt +="<ul><li><a href=../viewInformation?no='"+obj.information_no+"'><span class='thumb'><img src='"+obj.pest_img+"'></span>"
-                            txt +="<strong>"+obj.pest_nm+"</strong></a></li></ul>"
-
-<!--                            window.alert(txt)-->
-
-                        })
-                        $('#pest').html(txt)
-
-                    }
-                    })
-                })
-
-            })
-
-
-        </script>
     </body>
 </html>

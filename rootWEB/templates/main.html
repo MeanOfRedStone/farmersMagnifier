@@ -6,9 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Landing Page - Start Bootstrap Theme</title>
+        <title>DR.PLANT</title>
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="{% static 'assets/favicon.ico' %}" />
+        <link rel="icon" type="image/x-icon" href="{% static 'assets/img/mainplant.png' %}" />
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" type="text/css" />
         <!-- Google fonts-->
@@ -31,9 +31,10 @@
 
             #identification{
                 width: 505px;
-                height: 480px;
+                height: 390px;
                 display: block;
                 margin: 0 auto;
+                margin-top: 30px;
             }
             #information{
                 width: 100%;
@@ -62,7 +63,7 @@
             }
            #name-menu{
                 position: relative;
-                right: 1300px;
+                right: 1200px;
            }
             #plant-main{
                 margin: 0 auto;
@@ -104,7 +105,7 @@
             #heading_mb-2{
                 margin-bottom: 0.5rem !important;
                 display: block;
-                font-size: 3rem;
+                font-size: 4rem;
                 margin-block-start: 0.67em;
                 margin-block-end: 0.67em;
                 margin-inline-start: 0px;
@@ -119,7 +120,7 @@
 
             #heading_h3{
                 display: block;
-                font-size: 1.5em;
+                font-size: 2.0em;
                 margin-block-start: 1em;
                 margin-block-end: 1em;
                 margin-inline-start: 0px;
@@ -154,20 +155,15 @@
                 line-height: 1.75rem;
             }
 
+            #information_p, #information_p2{
+                font-size: 1.3rem;
+                font-weight: 400;
+                color: #696969 !important;
+            }
+
         </style>
     </head>
-   <!--    <body>-->
-        <!-- Navigation-->
-<!--        <nav class="navbar navbar-light bg-light static-top">-->
-<!--            <h3><a class="home" href="../home/">DR.PLANT</a></h3>-->
-<!--            <div class="container">-->
-<!--                <a class="navbar-brand" href="../information/">병충해 정보</a>-->
-<!--                <a class="navbar-brand" href="../identification/">병충해 판별</a>-->
-<!--                <a class="navbar-brand" href="../communicate/">정보 공유</a>-->
-<!--                <a class="navbar-brand" href="#!">게시판 3</a>-->
-<!--                <a class="btn btn-primary" href="../login/">Log In</a>-->
-<!--            </div>-->
-<!--        </nav>-->
+
     <body class="bg-white text-gray-600 work-sans leading-normal text-base tracking-normal">
     <!--Nav-->
     <nav id="header" class="w-full z-30 top-0 py-1">
@@ -221,7 +217,6 @@
                 </div>
             </div>
         </header>
-        <!-- Icons Grid-->
 
         <!-- Image Showcases-->
         <section class="showcase">
@@ -230,14 +225,14 @@
                     <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('assets/img/identification.png')"><img id="identification" src="{% static 'assets/img/identification.png' %}" /></div>
                     <div id="border1" style="background-color:#f8f9fa;" class="col-lg-6 order-lg-1 my-auto showcase-text">
                         <h2 class="landing_h2">병충해 판별</h2>
-                        <p class="lead mb-0">When you use a theme created by Start Bootstrap, you know that the theme will look great on any device, whether it's a phone, tablet, or desktop the page will behave responsively!</p>
+                        <p class="lead mb-0" id="information_p">AI모델을 통해 농작물의 질병, 병해충을 지금 바로 판별할 수 있습니다!<br>활용 모델 : 케라스 CNN<br>사용 데이터 : 케글 병해충 식물 이미지<br>판별 정확도 : 94.18%</p>
                     </div>
                 </div>
                 <div class="row g-0">
                     <div class="col-lg-6 text-white showcase-img" style="background-image: url('assets/img/bg-showcase-2.jpg')"><img id="information" src="{% static 'assets/img/information2.jpg' %}"/></div>
                     <div id="border2" style="background-color: #f8f9fa;" class="col-lg-6 my-auto showcase-text">
                         <h2 class="landing_h2">병충해 정보</h2>
-                        <p class="lead mb-0">Newly improved, <br>and full of great utility classes, Bootstrap 5 is leading the way in mobile responsive web development! All of the themes on Start Bootstrap are now using Bootstrap 5!</p>
+                        <p id="information_p2" class="lead mb-0">농작물의 질병, 병해충 정보를 확인할 수 있습니다!<br>농촌진흥청의 국가농작물관리시스템의 정보를 바탕으로<br>질병, 병해충 도감을 만들었습니다.<br>카테고리별로 쉽게 정보를 확인할 수 있습니다</p>
                     </div>
                 </div>
             </div>
