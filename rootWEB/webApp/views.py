@@ -160,6 +160,11 @@ def identification(request):
     # 로그인 세션 유지
     if (request.session.get('session_user_id')):
 
+        print(">>>>>>debug 미디어 파일 존재", os.path.exists('media/'))
+        for file in os.scandir('media/'):
+            print('>>>>>>debug 성공, 파일 삭제')
+            os.remove(file.path)
+
         print(">>>>>> debug, session exists")
         context = {}
         context['name'] = request.session['session_name']
@@ -238,6 +243,7 @@ def identificate(request):
     return render(request, 'identification_backup.html', context)
 
 def image(request):
+
     # 로그인 세션 유지
     if (request.session.get('session_user_id')):
 
@@ -272,33 +278,33 @@ def image(request):
         import numpy as np
         directory = "media/"
         files = [os.path.join(directory, p) for p in sorted(os.listdir(directory))]
-        for i in range(0, 1):
-            image_path = files[i]
-            new_img = keras.utils.load_img(image_path, target_size=(256, 256))
-            img = keras.utils.img_to_array(new_img)
-            img = np.expand_dims(img, axis=0)
-            img = img / 255
-            prediction = load_model.predict(img)
-            probabilty = prediction.flatten()
-            max_prob = probabilty.max()
-            index = prediction.argmax(axis=-1)[0]
-            class_name = Li[index]
-            # ploting image with predicted class name
-            # plt.figure(figsize=(4, 4))
-            # plt.imshow(new_img)
-            # plt.axis('off')
-            # plt.title(class_name + " " + str(max_prob)[0:4] + "%")
-            # plt.show()
-            # Encode your PIL Image as a JPEG without writing to disk
-            buffer = io.BytesIO()
-            images = new_img.save(buffer, format='JPEG', quality=75)
+        # for i in range(-1, ):
+        image_path = files[0]
+        new_img = keras.utils.load_img(image_path, target_size=(256, 256))
+        img = keras.utils.img_to_array(new_img)
+        img = np.expand_dims(img, axis=0)
+        img = img / 255
+        prediction = load_model.predict(img)
+        probabilty = prediction.flatten()
+        max_prob = probabilty.max()
+        index = prediction.argmax(axis=-1)[0]
+        class_name = Li[index]
+        # ploting image with predicted class name
+        # plt.figure(figsize=(4, 4))
+        # plt.imshow(new_img)
+        # plt.axis('off')
+        # plt.title(class_name + " " + str(max_prob)[0:4] + "%")
+        # plt.show()
+        # Encode your PIL Image as a JPEG without writing to disk
+        buffer = io.BytesIO()
+        images = new_img.save(buffer, format='JPEG', quality=75)
 
-            # You probably want
-            desiredObject = buffer.getbuffer()
-            context = {}
-            context['imgg'] = image_path
-            context['class'] = class_name
-            context['score'] = str(max_prob * 100)[0:5] + "%"
+        # You probably want
+        desiredObject = buffer.getbuffer()
+        context = {}
+        context['imgg'] = image_path
+        context['class'] = class_name
+        context['score'] = str(max_prob * 100)[0:5] + "%"
 
 
 
@@ -307,8 +313,8 @@ def image(request):
         context['name'] = request.session['session_name']
         context['user_id'] = request.session['session_user_id']
 
-        return render(request, 'image.html', context)
 
+        return render(request, 'image.html', context)
 
 
 
@@ -428,6 +434,7 @@ def DeleteAllFiles(filePath):
     else:
         return 'Directory Not Found'
 print(DeleteAllFiles('media/'))
+
 
 
 
