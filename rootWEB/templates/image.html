@@ -402,9 +402,21 @@
                </div>
 
                 <div style="text-align:center; ">
-                  <h1 id ="identificate_font">{{score}}일치:<br/>{% if class != null %}
-                       <a >{{class}}</a>
-                    {% endif %}</h1>
+                  <h1 id ="identificate_font">{{score}}일치:<br/>
+                      {% if class == "Corn_(maize)___Common_rust_" %}
+                         <a style="text-decoration:underline;" href="../viewInformation?no=87"><option value="{{class}}">점무늬병</option></a>
+                      {% elif class == "Potato___Early_blight" %}
+                        <a style="text-decoration:underline;" href="../viewInformation?no=8"><option value="{{class}}">역병</option></a>
+                      {% else %}
+                        <a style="text-decoration:underline;">{{class}}</a></h1>
+                      {% endif %}</h1>
+
+<!--                      {% if class != null %}-->
+<!--                       <a >{{class}}</a>-->
+<!--                    {% endif %}</h1>-->
+
+
+
                  </div>
         </div>
     </div>
